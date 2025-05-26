@@ -48,7 +48,7 @@ jobs:
           name: terraform-init
           path: |
             .terraform
-s            .terraform.lock.hcl
+            .terraform.lock.hcl
 
   # terraform-validate:
   #   name: Terraform Validate
