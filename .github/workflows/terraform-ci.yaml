@@ -1,10 +1,10 @@
 name: Azure Login Test
-
 on:
   push:
     branches:
-      - main
-
+      - 'feature/**'
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   test-azure-login:
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
         uses: azure/login@v1.6.1
         with:
           client-id: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
-          tenant-id: ${{ secrets.AZ_TENANT_ID }}
+          tenant-id: ${{ secrets.AZ_TENANT_ID }}  
           subscription-id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
           client-secret: ${{ secrets.AZ_SP_PASSWORD }}
           auth-type: SERVICE_PRINCIPAL
