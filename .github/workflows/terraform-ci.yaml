@@ -14,23 +14,10 @@ jobs:
   terraform-init:
     name: Terraform Init
     runs-on: ubuntu-latest
-
-    env:
-      AZ_SERVICE_PRINCIPAL: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
-      AZ_SP_PASSWORD: ${{ secrets.AZ_SP_PASSWORD }}
-      AZ_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}
-      AZ_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Debug secrets
-        run: |
-          echo "CLIENT ID: ${{ secrets.AZ_SERVICE_PRINCIPAL }}"
-          echo "TENANT ID: ${{ secrets.AZ_TENANT_ID }}"
-          echo "SUBSCRIPTION ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}"
-          echo "CLIENT SECRET is set: ${{ secrets.AZ_SP_PASSWORD != '' }}"
 
       - name: 'Azure Login'
         uses: azure/login@v1.6.1
@@ -39,7 +26,7 @@ jobs:
           tenant-id: ${{ secrets.AZ_TENANT_ID }}
           subscription-id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
           client-secret: ${{ secrets.AZ_SP_PASSWORD }}
-          auth-type: SERVICE_PRINCIPAL
+          auth-type: service-principal
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
