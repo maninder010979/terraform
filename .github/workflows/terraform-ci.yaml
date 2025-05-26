@@ -31,7 +31,7 @@ jobs:
           echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN: $ACTIONS_ID_TOKEN_REQUEST_TOKEN"
 
       - name: 'Azure Login'
-        uses: azure/login@v1
+        uses: azure/login@v1.6.1
         with:
           client-id: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
           tenant-id: ${{ secrets.AZ_TENANT_ID }}
