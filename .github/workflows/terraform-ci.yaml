@@ -25,6 +25,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Print env vars
+        run: |
+          echo "ACTIONS_ID_TOKEN_REQUEST_URL: $ACTIONS_ID_TOKEN_REQUEST_URL"
+          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN: $ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+
       - name: 'Azure Login'
         uses: azure/login@v1
         with:
@@ -32,8 +37,6 @@ jobs:
           tenant-id: ${{ secrets.AZ_TENANT_ID }}
           subscription-id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
           client-secret: ${{ secrets.AZ_SP_PASSWORD }}
-          enable-AzPSSession: false
-          environment: azurecloud
           auth-type: SERVICE_PRINCIPAL
 
       - name: Setup Terraform
