@@ -6,16 +6,13 @@ terraform {
     }
   }
 
-# backend "azurerm" { #maintaining the state in Azure Blob
-#     resource_group_name  = var.rg_name
-#     storage_account_name = var.blobstorage
-#     container_name       = var.blobcontainer
-#     key                  = "terraform.tfstate"
-#   }
+backend "azurerm" { #maintaining the state in Azure Blob
+    resource_group_name  = var.rg_name
+    storage_account_name = var.blobstorage
+    container_name       = var.blobcontainer
+    key                  = "terraform.tfstate"
+  }
 
-}
-
-terraform {
 }
 
 

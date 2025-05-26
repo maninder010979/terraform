@@ -23,4 +23,6 @@ variable "blobcontainer" { #dummy for local testing
     description = "container inside the blob storage"
 }
 
+variable "azurevnet" {}
+variable "azuresubnet" {}
 
