@@ -12,12 +12,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Debug Secrets
+      - name: Debug Azure CLI login
+        env:
+          AZ_CLIENT_ID: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
+          AZ_CLIENT_SECRET: ${{ secrets.AZ_SP_PASSWORD }}
+          AZ_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
         run: |
-          echo "CLIENT ID: ${{ secrets.AZ_SERVICE_PRINCIPAL }}"
-          echo "TENANT ID: ${{ secrets.AZ_TENANT_ID }}"
-          echo "SUBSCRIPTION ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}"
-          echo "CLIENT SECRET SET: ${{ secrets.AZ_SP_PASSWORD != '' }}"
+          az login --service-principal -u $AZ_CLIENT_ID -p $AZ_CLIENT_SECRET --tenant $AZ_TENANT_ID
+          az account show
+
 
       - name: Azure Login
         uses: azure/login@v1.6.1
