@@ -1,3 +1,5 @@
-# Terraform Code for creating VM instance.... 
-##  The Terraform state is managed through Azure Blob and terraform init at runtime connect the container blob and download the state from the Azure BLOB
-## This code reuqired AZ, Terraform CLI etc....
+# Azure VM Creation using Terraform 
+
+## This TF configuration is fetching the secret throug Vault and GitHub Action Variables for authenticating and then calling the TF config to create the VM instance using all ready existing resource group and VNET.
+
+## The state of the file is managed in Azure Blob Container. 

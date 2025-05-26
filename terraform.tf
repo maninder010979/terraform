@@ -5,6 +5,17 @@ terraform {
       version = "=3.0.0"
     }
   }
+
+# backend "azurerm" { #maintaining the state in Azure Blob
+#     resource_group_name  = var.rg_name
+#     storage_account_name = var.blobstorage
+#     container_name       = var.blobcontainer
+#     key                  = "terraform.tfstate"
+#   }
+
+}
+
+terraform {
 }
 
 

@@ -4,22 +4,23 @@ variable "azurevmuser" {}
 variable "azurepassword" {
     type = string
     sensitive = true
-    description = "name of the resource which is to be create"
-    # validation {
-    #     condition = substr(var.rg_name,0,4) == "mani"
-    #     error_message = "resource groupname should start with mani"
-
-    # }
 }
 
 
-variable "rg_name" {
-    default = "maninder"
+variable "rg_name" { #dummy for local testing 
     type = string
-    description = "name of the resource which is to be create"
-    # validation {
-    #     condition = substr(var.rg_name,0,4) == "mani"
-    #     error_message = "resource groupname should start with mani"
-
-    # }
+    description = "Resource group name where the blob storage exist"
 }
+
+
+variable "blobstorage" { #dummy for local testing 
+    type = string
+    description = "Blobstorage for managing the state"
+}
+
+variable "blobcontainer" { #dummy for local testing 
+    type = string
+    description = "container inside the blob storage"
+}
+
+
