@@ -60,7 +60,7 @@ jobs:
         with:
           name: terraform-init
           path: |
-            .terraform
+            .terraform/
             .terraform.lock.hcl
 
 
