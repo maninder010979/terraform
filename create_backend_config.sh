@@ -10,3 +10,4 @@ EOF
 
 terraform init -backend-config="backend.tfbackend"
 ls -la
+tar czf ../tf_artifact.tar.gz .terraform .terraform.lock.hcl

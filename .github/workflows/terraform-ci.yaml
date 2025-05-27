@@ -58,11 +58,8 @@ jobs:
       - name: Upload Terraform Init Data
         uses: actions/upload-artifact@v4
         with:
-          name: terraform-init
+          name: terraform-state
           path: |
-            .terraform/*
-            .terraform.lock.hcl
-          working-directory: ${{ github.workspace }}
-
+            tf_artifact.tar.gz
 
         
