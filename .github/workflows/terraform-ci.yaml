@@ -47,6 +47,13 @@ jobs:
         run: |
           chmod +x ./create_backend_config.sh
           ./create_backend_config.sh
+      
+      - name: Debug path before upload
+        run: |
+          echo "Current dir: $(pwd)"
+          ls -la
+          ls -la .terraform
+          ls -la .terraform.lock.hcl
 
       - name: Upload Terraform Init Data
         uses: actions/upload-artifact@v4
