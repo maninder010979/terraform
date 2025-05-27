@@ -3,7 +3,7 @@ name: Artifact Upload Test
 on:
   push:
     branches:
-      - 'feature/**'
+      - 'main'
 
 jobs:
   test-upload:

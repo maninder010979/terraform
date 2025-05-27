@@ -38,8 +38,20 @@ jobs:
           fi
           echo "✅ Azure login verified. Subscription:"
           az account show --output table
+
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+  
       - name: Terraform init # terraform Init
+        env:
+          TF_VARS_rg_name: ${{vars.TF_VARS_rg_name}}
+          TF_VARS_blobstorage: ${{vars.TF_VARS_blobstorage}}
+          TF_VARS_blobcontainer: ${{vars.TF_VARS_blobcontainer}}
         run: |
+          chmod +x ./create_backend_config.sh
           ./create_backend_config.sh
 
       - name: Upload Terraform Init Data
