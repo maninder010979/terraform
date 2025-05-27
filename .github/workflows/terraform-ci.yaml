@@ -39,7 +39,7 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
   
-      - name: Terraform init # terraform Init
+      - name: terraform-init # terraform Init
         env:
           TF_VARS_rg_name: ${{vars.TF_VARS_rg_name}}
           TF_VARS_blobstorage: ${{vars.TF_VARS_blobstorage}}
