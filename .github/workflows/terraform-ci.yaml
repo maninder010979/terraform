@@ -60,8 +60,9 @@ jobs:
         with:
           name: terraform-init
           path: |
-            $(find .terraform -type f)
+            .terraform/*
             .terraform.lock.hcl
+          working-directory: ${{ github.workspace }}
 
 
         
