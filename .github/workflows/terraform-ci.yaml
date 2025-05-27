@@ -19,17 +19,13 @@ jobs:
           AZ_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
         run: |
           az login --service-principal -u $AZ_CLIENT_ID -p $AZ_CLIENT_SECRET --tenant $AZ_TENANT_ID
+          
+
+
+      - name: az account show
+        run: |
           az account show
-
-
-      - name: Azure Login
-        uses: azure/login@v1.6.1
-        with:
-          client-id: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
-          tenant-id: ${{ secrets.AZ_TENANT_ID }}  
-          subscription-id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
-          client-secret: ${{ secrets.AZ_SP_PASSWORD }}
-          auth-type: SERVICE_PRINCIPAL
+        
 
       - name: Verify Login
         run: az account show
