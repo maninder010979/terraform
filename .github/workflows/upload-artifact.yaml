@@ -7,7 +7,7 @@ on:
 
 jobs:
   test-upload:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Create test file
