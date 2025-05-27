@@ -43,7 +43,7 @@ jobs:
           ./create_backend_config.sh
 
       - name: Upload Terraform Init Data
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: terraform-init
           path: |
