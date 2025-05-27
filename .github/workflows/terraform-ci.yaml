@@ -28,16 +28,14 @@ jobs:
       #       exit 1
       #     fi
       #     echo "✅ Azure login successful."
+     
+      # az ad sp create-for-rbac --name "maninder-sp" --sdk-auth
 
 
       - name: Azure Login via Service Principal
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
-          tenant-id: ${{ secrets.AZ_TENANT_ID }}
-          subscription-id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
-          client-secret: ${{ secrets.AZ_SP_PASSWORD }}
-          auth-type: SERVICE_PRINCIPAL
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Verify Azure Login
         run: |
