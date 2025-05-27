@@ -18,24 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # - name: Azure CLI login # i have leveraged Azure Log in as az github action login is giving the issue 
-      #   env:
-      #     AZ_CLIENT_ID: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
-      #     AZ_CLIENT_SECRET: ${{ secrets.AZ_SP_PASSWORD }}
-      #     AZ_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
-      #   run: |
-      #     az login --service-principal -u $AZ_CLIENT_ID -p $AZ_CLIENT_SECRET --tenant $AZ_TENANT_ID
-      #     set -e
-      #     echo "Attempting to login to Azure..."
-      #     if ! az login --service-principal -u "$AZ_CLIENT_ID" -p "$AZ_CLIENT_SECRET" --tenant "$AZ_TENANT_ID" > /dev/null 2>&1; then
-      #       echo "❌ Azure login failed. Please check your service principal credentials." >&2
-      #       exit 1
-      #     fi
-      #     echo "✅ Azure login successful."
-     
-      # az ad sp create-for-rbac --name "maninder-sp" --sdk-auth
-
-
       - name: Azure Login via Service Principal
         uses: azure/login@v1
         with:

@@ -9,3 +9,4 @@ key                  = "terraform.tfstate"
 EOF
 
 terraform init -backend-config="backend.tfbackend"
+ls -la
