@@ -39,7 +39,7 @@ jobs:
           echo "✅ Azure login verified. Subscription:"
           az account show --output table
       - name: Terraform init # terraform Init 
-        run |
+        run: |
            ./create_backend_config.sh  
       - name: Upload Terraform Init Data
         uses: actions/upload-artifact@v3
