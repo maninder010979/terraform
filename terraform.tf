@@ -20,4 +20,9 @@ backend "azurerm" { #maintaining the state in Azure Blob
 provider "azurerm" {
   
   features {}
+
+  client_id       = var.AZ_CLIENT_ID
+  client_secret   = var.AZ_CLIENT_SECRET
+  tenant_id       = var.AZ_TENANT_ID
+  subscription_id = var.AZ_SUBSCRIPTION_ID
 }
