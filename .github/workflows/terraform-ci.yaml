@@ -60,7 +60,8 @@ jobs:
         with:
           name: terraform-init
           path: |
-            create_backend_config.sh
+            $(find .terraform -type f)
+            .terraform.lock.hcl
 
 
         
