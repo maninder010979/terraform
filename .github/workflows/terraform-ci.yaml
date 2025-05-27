@@ -31,7 +31,7 @@ jobs:
 
 
       - name: Azure Login via Service Principal
-        uses: azure/login@v3
+        uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZ_SERVICE_PRINCIPAL }}
           tenant-id: ${{ secrets.AZ_TENANT_ID }}
